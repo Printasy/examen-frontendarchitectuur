@@ -45,15 +45,17 @@ function saveSettingsFromUI() {
     const emailSetting = document.querySelector("#notify_email");
     const popupSetting = document.querySelector("#notify_popup");
     const intervalSetting = document.querySelector("#notify_interval")
-    appSettings.setEmail(emailSetting.value);
-    appSettings.setPopup(popupSetting.value);
+    appSettings.setEmail(boolean(emailSetting.value));
+    appSettings.setPopup(boolean(popupSetting.value));
     appSettings.setInterval(intervalSetting.value);
-//    showSettingsInUI();
     console.log(appSettings.setEmail(emailSetting.value), appSettings.setPopup(popupSetting.value),appSettings.setInterval(intervalSetting.value))
+
+    showSettingsInUI();
+
 }
 function showSettingsInUI() {
     document.querySelector("#notify_output").textContent =
-        `Ontvangen-emails : ${appSettings.getEmail()} ; Ontvangen-popups : ${appSettings.getPopup()} ; Interval : ${appSettings.getPopup()}`
+        `Ontvangen-emails : ${appSettings.getEmail()} ; Ontvangen-popups : ${appSettings.getPopup()} ; Interval : ${appSettings.getInterval()}`
 }
 
 // event listeners
